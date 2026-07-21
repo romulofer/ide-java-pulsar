@@ -207,3 +207,16 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/vim,node,macos,linux,emacs,windows
 
+# Local agent working docs (spec / plan / todo)
+specs/
+plans/
+*.spec.md
+*.plan.md
+*.todo.md
+SPEC.md
+PLAN.md
+TODO.md
+TODO
+
+
+tasks
