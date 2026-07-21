@@ -1,7 +1,7 @@
 {
   "name": "ide-java-pulsar",
   "main": "./lib/main",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "Java language support for Pulsar, powered by the Eclipse JDT language server.",
   "author": "Rômulo Fernandes Evangelista (https://github.com/romulofer)",
   "repository": {
