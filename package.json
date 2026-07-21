@@ -1,22 +1,44 @@
 {
-  "name": "ide-java",
+  "name": "ide-java-pulsar",
   "main": "./lib/main",
   "version": "0.9.1",
-  "description": "Java language support for Atom-IDE.",
-  "repository": "https://github.com/atom/ide-java",
+  "description": "Java language support for Pulsar, powered by the Eclipse JDT language server.",
+  "author": "Rômulo Fernandes Evangelista (https://github.com/romulofer)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romulofer/ide-java-pulsar.git"
+  },
+  "homepage": "https://github.com/romulofer/ide-java-pulsar#readme",
+  "bugs": {
+    "url": "https://github.com/romulofer/ide-java-pulsar/issues"
+  },
   "license": "MIT",
+  "keywords": [
+    "java",
+    "jdt",
+    "lsp",
+    "pulsar",
+    "ide",
+    "language"
+  ],
   "scripts": {
-    "test": "atom --test test"
+    "test": "pulsar --test test"
   },
   "engines": {
-    "atom": ">=1.21.0"
+    "atom": ">=1.21.0 <2.0.0"
   },
   "configSchema": {
     "javaHome": {
       "order": 10,
       "type": "string",
       "default": "",
-      "description": "Absolute path to Java 8 or later home folder used to launch the Java language server."
+      "description": "Absolute path to Java 17 or later home folder used to launch the Java language server."
+    },
+    "serverPath": {
+      "order": 15,
+      "type": "string",
+      "default": "",
+      "description": "Absolute path to an existing Eclipse JDT language server install (the folder containing `plugins/` and `config_*`). If set, this install is used and the bundled server download is skipped."
     },
     "virtualMachine": {
       "order": 20,
@@ -24,8 +46,8 @@
       "properties": {
         "extraArgs": {
           "type": "string",
-          "default": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
-          "description": "Extra arguments passed to the Java VM when launching the Java Language Server. Eg. use `-noverify -Xmx1G  -XX:+UseG1GC -XX:+UseStringDeduplication` to bypass class verification, increase the heap size to 1GB and enable String deduplication with the G1 Garbage collector."
+          "default": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+          "description": "Extra arguments passed to the Java VM when launching the Java Language Server. Eg. use `-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication` to increase the heap size to 1GB and enable String deduplication with the G1 Garbage collector."
         }
       }
     },
@@ -102,7 +124,7 @@
   },
   "atomTestRunner": "./test/runner",
   "dependencies": {
-    "atom-languageclient": "0.9.9",
+    "@savetheclocktower/atom-languageclient": "^1.17.5",
     "atom-select-list": "^0.7.1",
     "decompress": "^4.2.0"
   },

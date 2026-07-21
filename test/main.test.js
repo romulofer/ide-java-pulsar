@@ -43,5 +43,26 @@ describe('main', () => {
         + '\nJava HotSpot(TM) 64-Bit Server VM (build 9+181, mixed mode)')
       expect(version).to.be.equal(9)
     })
+
+    it('returns 17 for OpenJDK 17.0.4', () => {
+      const version = JavaLanguageClient.getJavaVersionFromOutput('openjdk version "17.0.4" 2022-07-19 LTS'
+        + '\nOpenJDK Runtime Environment Temurin-17.0.4+8 (build 17.0.4+8)'
+        + '\nOpenJDK 64-Bit Server VM Temurin-17.0.4+8 (build 17.0.4+8, mixed mode)')
+      expect(version).to.be.equal(17)
+    })
+
+    it('returns 21 for OpenJDK 21.0.4', () => {
+      const version = JavaLanguageClient.getJavaVersionFromOutput('openjdk version "21.0.4" 2024-07-16 LTS'
+        + '\nOpenJDK Runtime Environment Temurin-21.0.4+7 (build 21.0.4+7-LTS)'
+        + '\nOpenJDK 64-Bit Server VM Temurin-21.0.4+7 (build 21.0.4+7-LTS, mixed mode, sharing)')
+      expect(version).to.be.equal(21)
+    })
+
+    it('returns 21 for a bare major version "21"', () => {
+      const version = JavaLanguageClient.getJavaVersionFromOutput('openjdk version "21" 2023-09-19'
+        + '\nOpenJDK Runtime Environment (build 21+35-2513)'
+        + '\nOpenJDK 64-Bit Server VM (build 21+35-2513, mixed mode, sharing)')
+      expect(version).to.be.equal(21)
+    })
   })
 })

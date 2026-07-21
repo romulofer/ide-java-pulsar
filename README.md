@@ -1,13 +1,26 @@
-##### Atom and all repositories under Atom will be archived on December 15, 2022. Learn more in our [official announcement](https://github.blog/2022-06-08-sunsetting-atom/)
- # IDE-Java package
-[![CI](https://github.com/atom/ide-java/actions/workflows/ci.yml/badge.svg)](https://github.com/atom/ide-java/actions/workflows/ci.yml)
+# ide-java-pulsar
+[![CI](https://github.com/romulofer/ide-java-pulsar/actions/workflows/ci.yml/badge.svg)](https://github.com/romulofer/ide-java-pulsar/actions/workflows/ci.yml)
 
-Java language support for Atom-IDE, powered by the [Eclipse JDT language server](https://github.com/eclipse/eclipse.jdt.ls).
+Java language support for [Pulsar](https://pulsar-edit.dev), powered by the [Eclipse JDT language server](https://github.com/eclipse/eclipse.jdt.ls).
 
-![Screenshot of IDE-Java](https://user-images.githubusercontent.com/118951/30291233-0b6e04ac-96e7-11e7-9aa8-3cc6143537c1.png)
+![Screenshot of ide-java-pulsar](https://user-images.githubusercontent.com/118951/30291233-0b6e04ac-96e7-11e7-9aa8-3cc6143537c1.png)
 
-## Early access
-This package is currently an early access release.  You should also install the [atom-ide-ui](https://atom.io/packages/atom-ide-ui) package to expose the functionality within Atom.
+## Installation
+
+Install from Pulsar's package manager, or from the command line:
+
+```
+ppm install ide-java-pulsar
+```
+
+You should also install [atom-ide-base](https://web.pulsar-edit.dev/packages/atom-ide-base) to surface the language features (completion, diagnostics, outline, and so on) in the editor.
+
+## Requirements
+
+* [Pulsar](https://pulsar-edit.dev)
+* Java 17 or later on your `PATH`, or set the `Java Home` setting (or the `JDK_HOME` / `JAVA_HOME` environment variables). The Eclipse JDT language server needs Java 17 to run; it can still build projects that target older Java versions.
+
+On first use the package downloads the Eclipse JDT language server automatically. To reuse an existing install instead, set the `Server Path` setting to a folder that contains `plugins/` and `config_*`.
 
 ## Features
 
@@ -22,7 +35,7 @@ This package is currently an early access release.  You should also install the 
 * Signature help
 
 ## Contributing
-Always feel free to help out!  Whether it's [filing bugs and feature requests](https://github.com/atom/languageserver-java/issues/new) or working on some of the [open issues](https://github.com/atom/languageserver-java/issues), Atom's [contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) will help get you started while the [guide for contributing to packages](https://github.com/atom/atom/blob/master/docs/contributing-to-packages.md) has some extra information.
+Always feel free to help out. Whether it's [filing bugs and feature requests](https://github.com/romulofer/ide-java-pulsar/issues/new) or working on some of the [open issues](https://github.com/romulofer/ide-java-pulsar/issues), your help is welcome.
 
 ## License
-MIT License.  See [the license](LICENSE.md) for more details.
+MIT License. See [the license](LICENSE.md) for more details.
